@@ -15,11 +15,11 @@ from fileinput import filename
 app = Flask(__name__)
 
 def db_con():
-    con = psycopg2.connect(host='127.0.0.1',
-                           port=5432,
-                           dbname = 'tvtracking',
-                           password = 'prismpassword',
-                           user = 'prismuser')
+    con = psycopg2.connect(host=config.host,
+                       port=config.port,
+                       dbname = config.dbname,
+                       password = config.password,
+                       user = config.user)
     
     return con
 
