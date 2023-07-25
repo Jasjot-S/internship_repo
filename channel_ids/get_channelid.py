@@ -16,15 +16,16 @@ import redis
 from flask import *
 import RedisQueue
 import json
+import config
 
 app = Flask(__name__)
 
 def queue_object():
     queue_obj = RedisQueue.RedisQueue('channelid_object',
-		host='localhost',
-		port=6379,
-		password='',
-		db=0
+		host=config.host,
+		port=config.port,
+		password=config.password,
+		db=config.db
 	)
     return queue_obj
 
